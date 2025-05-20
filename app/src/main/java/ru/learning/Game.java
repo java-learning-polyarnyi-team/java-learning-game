@@ -14,7 +14,7 @@ public class Game {
 
     public static Integer readConsoleInput(){
         Scanner input = new Scanner(System.in);
-        System.out.print("Для выхода введите 1: ");
+        System.out.print("Для выхода введите 2: ");
         Integer inputInt = input.nextInt(); // здесь идет считывание текста
         return inputInt;
     }
