@@ -1,12 +1,12 @@
 package ru.learning.character;
 
 public class Player {
-    public static String name;
-    public static Integer health;
-    public static Integer maxHealth;
-    public static Integer attackPower;
+    public String name;
+    public Integer health;
+    public Integer maxHealth;
+    public Integer attackPower;
 
-    public static boolean isAlive(Integer health) {
+    public boolean isAlive() {
         if (health > 0) {
             return true;
         }
@@ -15,13 +15,13 @@ public class Player {
         }
     }
 
-    public static Integer attack() {
+    public Integer attack() {
         attackPower = 10;
         return attackPower;
     }
 
-    public static Integer takeDamage(Integer health, Integer damage) {
-        while (damage > 0) {
+    public Integer takeDamage(int damage) {
+        if (damage > 0) {
             health = health - damage;
         }
         return health;
