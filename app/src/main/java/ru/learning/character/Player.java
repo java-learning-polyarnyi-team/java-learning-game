@@ -6,6 +6,27 @@ public class Player {
     private Integer maxHealth;
     private Integer attackPower;
 
+    public Player (String name, Integer health) {
+        this.name = name;
+        this.health = health;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName (String name) {
+        this.name = name;
+    }
+
+    public Integer getHealth() {
+        return health;
+    }
+
+    public void setHealth(Integer health) {
+        this.health = health;
+    }
+
     public boolean isAlive() {
         if (health > 0) {
             return true;
@@ -16,7 +37,7 @@ public class Player {
     }
 
     public Integer attack() {
-        attackPower = 10;
+        attackPower = 20;
         return attackPower;
     }
 
