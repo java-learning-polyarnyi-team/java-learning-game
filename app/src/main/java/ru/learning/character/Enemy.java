@@ -6,6 +6,7 @@ public class Enemy {
     private String name;
     private Integer health;
     private Integer attackPower;
+    private RandomGenerator randomQuantity = RandomGenerator.getDefault();
 
     public Enemy(String name, Integer health) {
         this.name = name;
@@ -38,7 +39,6 @@ public class Enemy {
     }
 
     public Integer attack() {
-        RandomGenerator randomQuantity = RandomGenerator.getDefault();
         int attackPower = randomQuantity.nextInt(1, 11);
         return attackPower;
     }
