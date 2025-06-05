@@ -46,4 +46,7 @@ public class Player {
             health = health - damage;
         }
     }
+    public void printlnPlayerStatus() {
+        System.out.println("Здоровье игрока: " + getHealth());
+    }
 }

@@ -36,7 +36,7 @@ public class Enemy {
     }
 
     public Integer attack() {
-        attackPower = 10;
+        attackPower = 60;
         return attackPower;
     }
 
@@ -44,5 +44,9 @@ public class Enemy {
         if (damage > 0) {
             health = health - damage;
         }
+    }
+
+    public void printlnEnemyStatus() {
+        System.out.println("Здоровье врага: " + getHealth());
     }
 }
