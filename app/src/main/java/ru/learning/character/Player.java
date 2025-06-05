@@ -40,8 +40,9 @@ public class Player {
     }
 
     public Integer attack() {
-        int attackPower = randomQuantity.nextInt(5, 21);
-        return attackPower;
+        this.attackPower = 20;
+        int randomPower = randomQuantity.nextInt(5, this.attackPower + 1);
+        return randomPower;
     }
 
     public void takeDamage(int damage) {

@@ -39,8 +39,9 @@ public class Enemy {
     }
 
     public Integer attack() {
-        int attackPower = randomQuantity.nextInt(1, 11);
-        return attackPower;
+        this.attackPower = 10;
+        int randomPower = randomQuantity.nextInt(1, this.attackPower + 1);
+        return randomPower;
     }
 
     public void takeDamage(int damage) {
