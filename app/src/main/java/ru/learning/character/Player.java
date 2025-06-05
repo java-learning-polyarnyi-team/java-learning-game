@@ -7,7 +7,7 @@ public class Player {
     private Integer health;
     private Integer maxHealth;
     private Integer attackPower;
-    private RandomGenerator randomQuantity = RandomGenerator.getDefault();
+    private RandomGenerator randomAttackGenerator = RandomGenerator.getDefault();
 
     public Player (String name, Integer health) {
         this.name = name;
@@ -41,7 +41,7 @@ public class Player {
 
     public Integer attack() {
         this.attackPower = 20;
-        int randomPower = randomQuantity.nextInt(5, this.attackPower + 1);
+        int randomPower = randomAttackGenerator.nextInt(5, this.attackPower + 1);
         return randomPower;
     }
 
