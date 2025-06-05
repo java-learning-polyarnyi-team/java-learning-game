@@ -20,34 +20,18 @@ public class Game {
                 Enemy enemy1 = new Enemy("Бандит_1", 100);
                 System.out.println("Враг: " + enemy1.getName());
                 System.out.println("Здоровье: " + enemy1.getHealth());
-                    for (int active = 1; (enemy1.isAlive() == true) && (batman.isAlive() == true); active++) {
-                        System.out.println();
-                        fightAction();
-                        Integer inputA = readConsoleInput();
-                        if (active % 2 != 0) {
-                            if (inputA == 1) {
-                                enemy1.takeDamage(batman.attack());
-                                if (enemy1.isAlive() == true) {
-                                    batman.printlnPlayerStatus();
-                                    enemy1.printlnEnemyStatus();
-                                }
+                for (int active = 1; (enemy1.isAlive() == true) && (batman.isAlive() == true); active++) {
+                    System.out.println();
+                    fightAction();
+                    Integer inputA = readConsoleInput();
+                    if (active % 2 != 0) {
+                        if (inputA == 1) {
+                            enemy1.takeDamage(batman.attack());
+                            if (enemy1.isAlive() == true) {
+                                batman.printlnPlayerStatus();
+                                enemy1.printlnEnemyStatus();
                             }
-                                if (inputA == 2) {
-                                    System.out.println("Атака отражена");
-                                    System.out.println();
-                                    batman.printlnPlayerStatus();
-                                    enemy1.printlnEnemyStatus();
-                                }
-                            }
-                        else if (active % 2 == 0) {
-                            if (inputA == 1) {
-                                enemy1.takeDamage(batman.attack());
-                                batman.takeDamage(enemy1.attack());
-                                if ((enemy1.isAlive() == true) && (batman.isAlive() == true)) {
-                                    batman.printlnPlayerStatus();
-                                    enemy1.printlnEnemyStatus();
-                                }
-                            }
+                        }
                             if (inputA == 2) {
                                 System.out.println("Атака отражена");
                                 System.out.println();
@@ -55,8 +39,25 @@ public class Game {
                                 enemy1.printlnEnemyStatus();
                             }
                         }
+                    else if (active % 2 == 0) {
+                        if (inputA == 1) {
+                            enemy1.takeDamage(batman.attack());
+                            batman.takeDamage(enemy1.attack());
+                            if ((enemy1.isAlive() == true) && (batman.isAlive() == true)) {
+                                batman.printlnPlayerStatus();
+                                enemy1.printlnEnemyStatus();
+                            }
+                        }
+                        if (inputA == 2) {
+                            System.out.println("Атака отражена");
+                            System.out.println();
+                            batman.printlnPlayerStatus();
+                            enemy1.printlnEnemyStatus();
+                        }
                     }
+                }
                 if (enemy1.isAlive() == false) {
+                    System.out.println();
                     System.out.println("Победа!");
                     System.out.println();
                 }

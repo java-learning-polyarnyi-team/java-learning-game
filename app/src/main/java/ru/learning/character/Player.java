@@ -44,9 +44,10 @@ public class Player {
     public void takeDamage(int damage) {
         if (damage > 0) {
             health = health - damage;
+            System.out.println(getName() + " получил урона: " + damage);
         }
     }
     public void printlnPlayerStatus() {
-        System.out.println("Здоровье игрока: " + getHealth());
+        System.out.println("Здоровье " + getName() + ": " + getHealth());
     }
 }

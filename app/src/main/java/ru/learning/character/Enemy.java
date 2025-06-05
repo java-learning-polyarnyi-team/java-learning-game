@@ -36,17 +36,18 @@ public class Enemy {
     }
 
     public Integer attack() {
-        attackPower = 60;
+        attackPower = 10;
         return attackPower;
     }
 
     public void takeDamage(int damage) {
         if (damage > 0) {
             health = health - damage;
+            System.out.println(getName() + " получил урона: " + damage);
         }
     }
 
     public void printlnEnemyStatus() {
-        System.out.println("Здоровье врага: " + getHealth());
+        System.out.println("Здоровье " + getName() + ": " + getHealth());
     }
 }
