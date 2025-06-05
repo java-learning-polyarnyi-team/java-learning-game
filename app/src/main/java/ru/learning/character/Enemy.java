@@ -1,9 +1,12 @@
 package ru.learning.character;
 
+import java.util.random.RandomGenerator;
+
 public class Enemy {
     private String name;
     private Integer health;
     private Integer attackPower;
+    private RandomGenerator randomAttackGenerator = RandomGenerator.getDefault();
 
     public Enemy(String name, Integer health) {
         this.name = name;
@@ -36,8 +39,9 @@ public class Enemy {
     }
 
     public Integer attack() {
-        attackPower = 10;
-        return attackPower;
+        this.attackPower = 10;
+        int randomPower = randomAttackGenerator.nextInt(1, this.attackPower + 1);
+        return randomPower;
     }
 
     public void takeDamage(int damage) {
