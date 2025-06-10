@@ -8,9 +8,4 @@ public class Player extends Character {
     public Player(String name, Integer health) {
         super(name, health);
     }
-
-    public Integer attack() {
-        Integer attackPower1 = attackPower(20, 5);
-        return attackPower1;
-    }
 }

@@ -23,7 +23,7 @@ public class FightAction extends Action {
             Integer inputA = readConsoleInput();
             if (active % 2 != 0) {
                 if (inputA == 1) {
-                    enemy1.takeDamage(batman.attack());
+                    enemy1.takeDamage(batman.attack(20, 5));
                     if (enemy1.isAlive() == true) {
                         batman.printlnStatus();
                         enemy1.printlnStatus();
@@ -38,8 +38,8 @@ public class FightAction extends Action {
             }
             else if (active % 2 == 0) {
                 if (inputA == 1) {
-                    enemy1.takeDamage(batman.attack());
-                    batman.takeDamage(enemy1.attack());
+                    enemy1.takeDamage(batman.attack(20, 5));
+                    batman.takeDamage(enemy1.attack(10, 1));
                     if ((enemy1.isAlive() == true) && (batman.isAlive() == true)) {
                         batman.printlnStatus();
                         enemy1.printlnStatus();

@@ -45,7 +45,7 @@ public abstract class Character {
         }
     }
 
-    public Integer attackPower(Integer attackPower, Integer minAttackPower) {
+    public Integer attack(Integer attackPower, Integer minAttackPower) {
         this.attackPower = attackPower;
         int randomPower = randomAttackGenerator.nextInt(minAttackPower, attackPower + 1);
         return randomPower;
@@ -54,6 +54,4 @@ public abstract class Character {
     public void printlnStatus() {
         System.out.println("Здоровье " + getName() + ": " + getHealth());
     }
-
-    public abstract Integer attack();
 }
