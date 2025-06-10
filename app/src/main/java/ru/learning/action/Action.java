@@ -7,5 +7,5 @@ public abstract class Action {
         System.out.println(actionText + " " + number + ": ");
     }
 
-    public abstract Boolean action();
+    public abstract void action();
 }
