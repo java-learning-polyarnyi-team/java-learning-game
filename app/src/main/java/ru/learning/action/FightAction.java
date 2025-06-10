@@ -10,7 +10,7 @@ public class FightAction extends Action {
         actionText = "Для сражения с противником введите";
     }
 
-    public Boolean action() {
+    public void action() {
         Player batman = new Player("Бэтмен", 200, 20, 5);
         System.out.println("Герой: " + batman.getName());
         System.out.println("Здоровье: " + batman.getHealth());
@@ -62,7 +62,6 @@ public class FightAction extends Action {
             System.out.println("Этому городу нужен новый герой...");
             System.out.println();
         }
-        return false;
     }
 
     public static void fightAction() {

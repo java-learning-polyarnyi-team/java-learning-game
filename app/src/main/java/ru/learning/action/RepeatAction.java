@@ -5,8 +5,7 @@ public class RepeatAction extends Action {
         actionText = "Для повтора меню введите";
     }
 
-    public Boolean action() {
+    public void action() {
         System.out.println("Ты выбрал следующий цикл");
-        return false;
     }
 }

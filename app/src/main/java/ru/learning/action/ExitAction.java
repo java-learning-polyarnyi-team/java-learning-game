@@ -5,8 +5,8 @@ public class ExitAction extends Action {
         actionText = "Для выхода из игры введите";
     }
 
-    public Boolean action() {
+    public void action() {
         System.out.println("Поверь, испытывать страх - это нормально. Когда ты это осознаешь, то сможешь ему сопротивляться.");
-        return true;
+        System.exit(0);
     }
 }

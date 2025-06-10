@@ -18,10 +18,7 @@ public class Game {
         while (true) {
             writeOptions();
             Integer input = readConsoleInput();
-            Boolean exit = actions[input - 1].action();
-            if (exit) {
-                return;
-            }
+            actions[input - 1].action();
         }
     }
 
