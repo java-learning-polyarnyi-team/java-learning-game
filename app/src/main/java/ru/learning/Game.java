@@ -15,13 +15,11 @@ public class Game {
     };
 
     public static void main(String[] args) {
-        boolean game = true;
-        while (game) {
+        while (true) {
             writeOptions();
             Integer input = readConsoleInput();
             actions[input - 1].action();
             if (input == actions.length) {
-                game = false;
             }
         }
     }

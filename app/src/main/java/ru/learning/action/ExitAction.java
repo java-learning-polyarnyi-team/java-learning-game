@@ -7,5 +7,6 @@ public class ExitAction extends Action {
 
     public void action() {
         System.out.println("Поверь, испытывать страх - это нормально. Когда ты это осознаешь, то сможешь ему сопротивляться.");
+        System.exit(0);
     }
 }
