@@ -11,10 +11,10 @@ public class FightAction extends Action {
     }
 
     public Boolean action() {
-        Player batman = new Player("Бэтмен", 200);
+        Player batman = new Player("Бэтмен", 200, 20, 5);
         System.out.println("Герой: " + batman.getName());
         System.out.println("Здоровье: " + batman.getHealth());
-        Enemy enemy1 = new Enemy("Бандит_1", 100);
+        Enemy enemy1 = new Enemy("Бандит_1", 100, 10, 1);
         System.out.println("Враг: " + enemy1.getName());
         System.out.println("Здоровье: " + enemy1.getHealth());
         for (int active = 1; (enemy1.isAlive() == true) && (batman.isAlive() == true); active++) {
@@ -25,15 +25,15 @@ public class FightAction extends Action {
                 if (inputA == 1) {
                     enemy1.takeDamage(batman.attack());
                     if (enemy1.isAlive() == true) {
-                        batman.printlnPlayerStatus();
-                        enemy1.printlnEnemyStatus();
+                        batman.printlnStatus();
+                        enemy1.printlnStatus();
                     }
                 }
                 if (inputA == 2) {
                     System.out.println("Атака отражена");
                     System.out.println();
-                    batman.printlnPlayerStatus();
-                    enemy1.printlnEnemyStatus();
+                    batman.printlnStatus();
+                    enemy1.printlnStatus();
                 }
             }
             else if (active % 2 == 0) {
@@ -41,15 +41,15 @@ public class FightAction extends Action {
                     enemy1.takeDamage(batman.attack());
                     batman.takeDamage(enemy1.attack());
                     if ((enemy1.isAlive() == true) && (batman.isAlive() == true)) {
-                        batman.printlnPlayerStatus();
-                        enemy1.printlnEnemyStatus();
+                        batman.printlnStatus();
+                        enemy1.printlnStatus();
                     }
                 }
                 if (inputA == 2) {
                     System.out.println("Атака отражена");
                     System.out.println();
-                    batman.printlnPlayerStatus();
-                    enemy1.printlnEnemyStatus();
+                    batman.printlnStatus();
+                    enemy1.printlnStatus();
                 }
             }
         }
