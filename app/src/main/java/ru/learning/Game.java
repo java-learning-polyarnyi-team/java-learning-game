@@ -19,8 +19,6 @@ public class Game {
             writeOptions();
             Integer input = readConsoleInput();
             actions[input - 1].action();
-            if (input == actions.length) {
-            }
         }
     }
 
