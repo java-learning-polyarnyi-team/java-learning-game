@@ -6,11 +6,14 @@ public abstract class Character {
     private String name;
     private Integer health;
     protected Integer attackPower;
+    protected Integer minAttackPower;
     private RandomGenerator randomAttackGenerator = RandomGenerator.getDefault();
 
-    public Character(String name, Integer health) {
+    public Character(String name, Integer health, Integer attackPower, Integer minAttackPower) {
         this.name = name;
         this.health = health;
+        this.attackPower = attackPower;
+        this.minAttackPower = minAttackPower;
     }
 
     public String getName() {
@@ -45,9 +48,8 @@ public abstract class Character {
         }
     }
 
-    public Integer attack(Integer attackPower, Integer minAttackPower) {
-        this.attackPower = attackPower;
-        int randomPower = randomAttackGenerator.nextInt(minAttackPower, attackPower + 1);
+    public Integer attack() {
+        int randomPower = randomAttackGenerator.nextInt(this.minAttackPower, this.attackPower + 1);
         return randomPower;
     }
 
