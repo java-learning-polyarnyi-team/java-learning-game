@@ -5,6 +5,7 @@ import ru.learning.action.ExitAction;
 import ru.learning.action.FightAction;
 import ru.learning.action.RepeatAction;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Game {

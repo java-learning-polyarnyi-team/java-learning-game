@@ -33,17 +33,15 @@ public abstract class Character {
     }
 
     public boolean isAlive() {
-        if (health > 0) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return health != 0;
     }
 
     public void takeDamage(int damage) {
         if (damage > 0) {
             health = health - damage;
+            if (health < 0) {
+                health = 0;
+            }
             System.out.println(getName() + " получил урона: " + damage);
         }
     }
