@@ -1,17 +1,14 @@
 package ru.learning;
 
-import ru.learning.action.Action;
-import ru.learning.action.ExitAction;
-import ru.learning.action.FightAction;
-import ru.learning.action.RepeatAction;
+import ru.learning.action.*;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class Game {
     private static Action[] actions = {
             new RepeatAction(),
             new FightAction(),
+            new RoomAction(),
             new ExitAction()
     };
 
