@@ -1,7 +1,5 @@
 package ru.learning.character;
 
-import java.util.random.RandomGenerator;
-
 public class Player extends Character {
     private Integer maxHealth;
 
