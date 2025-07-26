@@ -14,11 +14,11 @@ public class Game {
     private static Action[] actions = {
 //            new RepeatAction(),
             new FightAction(),
-//            new RoomAction(),
             new ExitAction()
     };
 
     public static void main(String[] args) {
+        generateMap();
         while (true) {
             writeOptions();
             Integer input = readConsoleInput();
