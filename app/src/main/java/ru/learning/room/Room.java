@@ -2,11 +2,13 @@ package ru.learning.room;
 
 public class Room {
     protected String roomText;
-    private Integer number;
+    private Integer roomNumber;
+    private Integer enemyNumber;
 
-    public Room(String roomName, Integer number) {
-        this.roomText = roomName;
-        this.number = number;
+    public Room(String roomName, Integer number, Integer enemyNumber) {
+        roomText = roomName;
+        this.roomNumber = number;
+        this.enemyNumber = enemyNumber;
     }
 
     public void printlnRoom(Integer number) {

@@ -43,10 +43,11 @@ public class Game {
         int roomNumber = numberGenerator.nextInt(5, 7);
         List<String> roomName = new ArrayList<>();
         for (int i = 1; i <= roomNumber; i++) {
-            Room rooms = new Room("k", i);
+            int checkEnemy = numberGenerator.nextInt(0, 2);
+            Room rooms = new Room("k", i, checkEnemy);
             roomName.add(rooms.toString());
         }
-        int checkEnemy = numberGenerator.nextInt(0, 2);
+        System.out.println(roomName);
         return roomName;
     }
 }
