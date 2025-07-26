@@ -1,7 +1,13 @@
 package ru.learning.room;
 
-public abstract class Room {
+public class Room {
     protected String roomText;
+    private Integer number;
+
+    public Room(String roomName, Integer number) {
+        this.roomText = roomName;
+        this.number = number;
+    }
 
     public void printlnRoom(Integer number) {
         System.out.println(roomText + " " + number + ": ");
@@ -12,6 +18,4 @@ public abstract class Room {
         System.out.println("Локация: " + location);
         System.out.println("Количество врагов: " + numberOfEnemies);
     }
-
-    public abstract void characterRoom();
 }

@@ -6,8 +6,10 @@ import ru.learning.room.IceRoom;
 import ru.learning.room.Room;
 
 import java.util.Scanner;
+import java.util.random.RandomGenerator;
 
 public class RoomAction extends Action {
+
     public RoomAction() {
         actionText = "Для выбора следующей локации введите";
     }
@@ -22,18 +24,11 @@ public class RoomAction extends Action {
         writeOptions();
         Integer input = readConsoleInput();
         rooms[input - 1].characterRoom();
-        innerRoomAction();
-        Integer input1 = readConsoleInput();
     }
 
     public static Integer readConsoleInput() {
         Scanner input = new Scanner(System.in);
         return input.nextInt();
-    }
-
-    public void innerRoomAction() {
-        System.out.println("Для сражения введите 1: ");
-        System.out.println("Для выхода введите 2: ");
     }
 
     public static void writeOptions() {
