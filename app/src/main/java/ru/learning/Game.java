@@ -38,16 +38,17 @@ public class Game {
         }
     }
 
-    public static List<String> generateMap() {
+    public static List<Room> generateMap() {
         RandomGenerator numberGenerator = RandomGenerator.getDefault();
         int roomNumber = numberGenerator.nextInt(5, 7);
-        List<String> roomName = new ArrayList<>();
+        List<Room> roomName = new ArrayList<>();
+        System.out.println("Выберите комнату для перехода:");
         for (int i = 1; i <= roomNumber; i++) {
             int checkEnemy = numberGenerator.nextInt(0, 2);
-            Room rooms = new Room("k", i, checkEnemy);
-            roomName.add(rooms.toString());
+            Room rooms = new Room("к", i, checkEnemy);
+            roomName.add(rooms);
+            rooms.roomInfo();
         }
-        System.out.println(roomName);
         return roomName;
     }
 }
