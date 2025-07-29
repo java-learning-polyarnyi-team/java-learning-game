@@ -1,17 +1,18 @@
 package ru.learning.room;
 
-public abstract class Room {
-    protected String roomText;
+public class Room {
+    private String roomText;
+    private Integer roomNumber;
+    private Integer enemyNumber;
 
-    public void printlnRoom(Integer number) {
-        System.out.println(roomText + " " + number + ": ");
+    public Room(String roomName, Integer number, Integer enemyNumber) {
+        this.roomText = roomName;
+        this.roomNumber = number;
+        this.enemyNumber = enemyNumber;
     }
 
-    public void printlnCharacterRoom(String object, String location, Integer numberOfEnemies) {
-        System.out.println("Месторасположение: " + object);
-        System.out.println("Локация: " + location);
-        System.out.println("Количество врагов: " + numberOfEnemies);
+    public void roomInfo() {
+        String roomName = this.roomText + this.roomNumber;
+        System.out.println(roomName);
     }
-
-    public abstract void characterRoom();
 }
