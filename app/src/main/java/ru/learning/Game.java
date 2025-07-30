@@ -18,8 +18,9 @@ public class Game {
     };
 
     public static void main(String[] args) {
-        makePlayerName();
-        generateMap();
+        String name = makePlayerName();
+        List<Room> rooms = generateMap();
+        Context context = new Context(rooms, name);
         while (true) {
             writeOptions();
             Integer input = readConsoleInput();
@@ -49,7 +50,6 @@ public class Game {
             Room room = new Room("к", i, checkEnemy);
             roomList.add(room);
             room.roomInfo();
-            Context.setRoomsStorage(room);
         }
         return roomList;
     }
@@ -58,7 +58,6 @@ public class Game {
         System.out.println("Придумайте имя игрока:");
         Scanner inputName = new Scanner(System.in);
         String newName = inputName.nextLine();
-        Context.setMakeName(newName);
         return newName;
     }
 }
