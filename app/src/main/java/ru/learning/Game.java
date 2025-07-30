@@ -1,6 +1,7 @@
 package ru.learning;
 
 import ru.learning.action.*;
+import ru.learning.context.Context;
 import ru.learning.room.Room;
 
 import java.util.ArrayList;
@@ -9,16 +10,17 @@ import java.util.Scanner;
 import java.util.random.RandomGenerator;
 
 public class Game {
-
+    private static Context context;
 
     private static Action[] actions = {
-//            new RepeatAction(),
             new FightAction(),
             new ExitAction()
     };
 
     public static void main(String[] args) {
-        generateMap();
+        String name = makePlayerName();
+        List<Room> rooms = generateMap();
+        context = new Context(rooms, name);
         while (true) {
             writeOptions();
             Integer input = readConsoleInput();
@@ -28,7 +30,7 @@ public class Game {
 
     public static Integer readConsoleInput() {
         Scanner input = new Scanner(System.in);
-        Integer inputInt = input.nextInt(); // здесь идет считывание текста
+        Integer inputInt = input.nextInt();
         return inputInt;
     }
 
@@ -41,14 +43,21 @@ public class Game {
     public static List<Room> generateMap() {
         RandomGenerator numberGenerator = RandomGenerator.getDefault();
         int roomNumber = numberGenerator.nextInt(5, 7);
-        List<Room> roomName = new ArrayList<>();
+        List<Room> roomList = new ArrayList<>();
         System.out.println("Выберите комнату для перехода:");
         for (int i = 1; i <= roomNumber; i++) {
             int checkEnemy = numberGenerator.nextInt(0, 2);
-            Room rooms = new Room("к", i, checkEnemy);
-            roomName.add(rooms);
-            rooms.roomInfo();
+            Room room = new Room("к", i, checkEnemy);
+            roomList.add(room);
+            room.roomInfo();
         }
-        return roomName;
+        return roomList;
+    }
+
+    public static String makePlayerName() {
+        System.out.println("Придумайте имя игрока:");
+        Scanner inputName = new Scanner(System.in);
+        String newName = inputName.nextLine();
+        return newName;
     }
 }
