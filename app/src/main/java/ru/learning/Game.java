@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.util.random.RandomGenerator;
 
 public class Game {
-
+    private static Context context;
 
     private static Action[] actions = {
             new FightAction(),
@@ -20,7 +20,7 @@ public class Game {
     public static void main(String[] args) {
         String name = makePlayerName();
         List<Room> rooms = generateMap();
-        Context context = new Context(rooms, name);
+        context = new Context(rooms, name);
         while (true) {
             writeOptions();
             Integer input = readConsoleInput();
