@@ -1,6 +1,7 @@
 package ru.learning;
 
 import ru.learning.action.*;
+import ru.learning.character.Player;
 import ru.learning.context.Context;
 import ru.learning.room.Room;
 
@@ -12,19 +13,20 @@ import java.util.random.RandomGenerator;
 public class Game {
     private static Context context;
 
-    private static Action[] actions = {
-            new FightAction(),
-            new ExitAction()
-    };
+    private static List<Action> actions = new ArrayList<>() {{
+            add(new NextRoomAction());
+            add(new FightAction());
+            add(new ExitAction());
+    }};
 
     public static void main(String[] args) {
-        String name = makePlayerName();
+        Player player = makePlayer();
         List<Room> rooms = generateMap();
-        context = new Context(rooms, name);
+        context = new Context(rooms, player);
         while (true) {
             writeOptions();
             Integer input = readConsoleInput();
-            actions[input - 1].action();
+            actions.get(input - 1).action(context);
         }
     }
 
@@ -35,8 +37,14 @@ public class Game {
     }
 
     public static void writeOptions() {
-        for (int i = 0; i < actions.length; i++) {
-            actions[i].printlnAction(i + 1);
+        List<Action> actionList = new ArrayList<>();
+        for (int i = 0; i < actions.size(); i++) {
+            if (actions.get(i).canBeAccept(context)) {
+               actionList.add(actions.get(i));
+            }
+        }
+        for (int i = 0; i < actionList.size(); i++) {
+            actionList.get(i).printlnAction(i + 1);
         }
     }
 
@@ -44,20 +52,18 @@ public class Game {
         RandomGenerator numberGenerator = RandomGenerator.getDefault();
         int roomNumber = numberGenerator.nextInt(5, 7);
         List<Room> roomList = new ArrayList<>();
-        System.out.println("Выберите комнату для перехода:");
         for (int i = 1; i <= roomNumber; i++) {
             int checkEnemy = numberGenerator.nextInt(0, 2);
             Room room = new Room("к", i, checkEnemy);
             roomList.add(room);
-            room.roomInfo();
         }
         return roomList;
     }
 
-    public static String makePlayerName() {
+    public static Player makePlayer() {
         System.out.println("Придумайте имя игрока:");
         Scanner inputName = new Scanner(System.in);
         String newName = inputName.nextLine();
-        return newName;
+        return new Player(newName, 200, 20, 5);
     }
 }

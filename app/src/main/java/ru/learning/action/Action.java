@@ -1,5 +1,7 @@
 package ru.learning.action;
 
+import ru.learning.context.Context;
+
 public abstract class Action {
     protected String actionText;
 
@@ -7,5 +9,7 @@ public abstract class Action {
         System.out.println(actionText + " " + number + ": ");
     }
 
-    public abstract void action();
+    public abstract Context action(Context context);
+
+    public abstract Boolean canBeAccept(Context context);
 }

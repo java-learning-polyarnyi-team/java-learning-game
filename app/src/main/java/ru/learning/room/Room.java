@@ -13,6 +13,6 @@ public class Room {
 
     public void roomInfo() {
         String roomName = this.roomText + this.roomNumber;
-        System.out.println(roomName);
+        System.out.println(roomName + ", количество врагов: " + enemyNumber);
     }
 }

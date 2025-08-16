@@ -2,6 +2,7 @@ package ru.learning.action;
 
 import ru.learning.character.Enemy;
 import ru.learning.character.Player;
+import ru.learning.context.Context;
 
 import java.util.Scanner;
 
@@ -15,8 +16,12 @@ public class FightAction extends Action {
             new BlockFightAction()
     };
 
-    public void action() {
-        Player batman = new Player("Бэтмен", 200, 20, 5);
+    public Boolean canBeAccept(Context context) {
+        return true;
+    }
+
+    public Context action(Context context) {
+        Player batman = context.getPlayer();
         System.out.println("Герой: " + batman.getName());
         System.out.println("Здоровье: " + batman.getHealth());
         Enemy enemy1 = new Enemy("Бандит_1", 100, 10, 1);
@@ -38,6 +43,7 @@ public class FightAction extends Action {
             System.out.println("Этому городу нужен новый герой...");
             System.out.println();
         }
+        return context;
     }
 
     private static void printStatus(Player batman, Enemy enemy1) {
