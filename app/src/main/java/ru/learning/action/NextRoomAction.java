@@ -16,9 +16,10 @@ public class NextRoomAction extends Action {
     }
 
     public Boolean canBeAccept(Context context) {
-        if (context.nextRoom() == context.getRoomsCount()) {
+        if (context.checkLastRoom()) {
             System.out.println("Победа!");
+            return false;
         }
-        return false;
+        return true;
     }
 }

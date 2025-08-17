@@ -29,7 +29,7 @@ public class Context {
         return roomsStorage.get(currentRoom);
     }
 
-    public Integer getRoomsCount() {
-        return roomsStorage.size();
+    public Boolean checkLastRoom() {
+        return currentRoom == roomsStorage.size();
     }
 }
